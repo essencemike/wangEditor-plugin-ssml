@@ -1,6 +1,6 @@
 /**
  * @description icon svg
- * @author wangfupeng
+ * @author emike
  */
 
 /**

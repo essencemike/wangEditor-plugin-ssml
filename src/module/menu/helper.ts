@@ -1,9 +1,8 @@
 /**
  * @description helper fns
- * @author wangfupeng
+ * @author emike
  */
 
-import Uppy, { UppyFile } from '@uppy/core'
 import { IDomEditor } from '@wangeditor/editor'
 import { createUploader } from '@wangeditor/editor'
 import { AttachmentElement } from '../custom-types'
@@ -86,13 +85,13 @@ async function uploadFile(editor: IDomEditor, file: File) {
 }
 
 // 存储 editor uppy 的关系 - 缓存 uppy ，不重复创建
-const EDITOR_TO_UPPY_MAP = new WeakMap<IDomEditor, Uppy>()
+const EDITOR_TO_UPPY_MAP = new WeakMap<IDomEditor, any>()
 
 /**
  * 获取 uppy 实例（并通过 editor 缓存）
  * @param editor editor
  */
-function getUppy(editor: IDomEditor): Uppy {
+function getUppy(editor: IDomEditor): any {
   // 从缓存中获取
   let uppy = EDITOR_TO_UPPY_MAP.get(editor)
   if (uppy != null) return uppy
@@ -101,7 +100,7 @@ function getUppy(editor: IDomEditor): Uppy {
   const { onSuccess, onProgress, onFailed, customInsert, onError } = menuConfig
 
   // 上传完成之后
-  const successHandler = (file: UppyFile, res: any) => {
+  const successHandler = (file: any, res: any) => {
     // 预期 res 格式：
     // 成功：{ errno: 0, data: { url } }
     // 失败：{ errno: !0, message: '失败信息' }

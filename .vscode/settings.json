@@ -11,7 +11,7 @@
     "uppy",
     "vnode",
     "wangeditor",
-    "wangfupeng"
+    "emike"
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "editor.codeActionsOnSave": {

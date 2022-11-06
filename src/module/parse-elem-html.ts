@@ -1,13 +1,26 @@
 /**
  * @description parse elem html
- * @author wangfupeng
+ * @author emike
  */
 
 import { DOMElement } from '../utils/dom'
 import { IDomEditor, SlateDescendant, SlateElement } from '@wangeditor/editor'
-import { AttachmentElement } from './custom-types'
+import { AttachmentElement, BreakElement } from './custom-types'
 
 function parseHtml(
+  elem: DOMElement,
+  children: SlateDescendant[],
+  editor: IDomEditor
+): SlateElement {
+  const value = elem.getAttribute('data-value') || ''
+  return {
+    type: 'ice_break',
+    value,
+    children: [{ text: '' }], // void node 必须有一个空白 text
+  } as BreakElement
+}
+
+function aparseHtml(
   elem: DOMElement,
   children: SlateDescendant[],
   editor: IDomEditor
@@ -22,8 +35,13 @@ function parseHtml(
   } as AttachmentElement
 }
 
-const parseHtmlConf = {
+export const aparseHtmlConf = {
   selector: 'a[data-w-e-type="attachment"]',
+  parseElemHtml: aparseHtml,
+}
+
+const parseHtmlConf = {
+  selector: 'break[data-w-e-type="ice_break"]',
   parseElemHtml: parseHtml,
 }
 

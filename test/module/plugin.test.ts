@@ -1,18 +1,17 @@
 /**
  * @description plugin test
- * @author wangfupeng
+ * @author emike
  */
 
 import createEditor from '../utils/create-editor'
-import withAttachment from '../../src/module/plugin'
-import { AttachmentElement } from '../../src/index'
+import withBreak from '../../src/module/plugin'
+import { BreakElement } from '../../src/index'
 
-describe('attachment plugin', () => {
-  const editor = withAttachment(createEditor())
-  const elem: AttachmentElement = {
-    type: 'attachment',
-    link: 'x',
-    fileName: 'y',
+describe('break plugin', () => {
+  const editor = withBreak(createEditor())
+  const elem: BreakElement = {
+    type: 'ice_break',
+    value: '2',
     children: [{ text: '' }],
   }
 

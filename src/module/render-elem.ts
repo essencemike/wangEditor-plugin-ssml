@@ -1,11 +1,11 @@
 /**
  * @description render elem
- * @author wangfupeng
+ * @author emike
  */
 
 import { h, VNode } from 'snabbdom'
 import { DomEditor, IDomEditor, SlateElement } from '@wangeditor/editor'
-import { AttachmentElement } from './custom-types'
+import { AttachmentElement, BreakElement } from './custom-types'
 
 function renderAttachment(elem: SlateElement, children: VNode[] | null, editor: IDomEditor): VNode {
   const isDisabled = editor.isDisabled()
@@ -63,9 +63,43 @@ function renderAttachment(elem: SlateElement, children: VNode[] | null, editor: 
   return vnode
 }
 
-const conf = {
+function renderBreak(elem: SlateElement, children: VNode[] | null, editor: IDomEditor): VNode {
+  const isDisabled = editor.isDisabled()
+
+  // 当前节点是否选中
+  const selected = DomEditor.isNodeSelected(editor, elem)
+
+  // 构建 vnode
+  const { value = '1' } = elem as BreakElement
+  const vnode = h(
+    'span',
+    {
+      props: {
+        contentEditable: false, // 不可编辑
+      },
+      style: {
+        display: 'inline-block', // inline
+        marginLeft: '3px',
+        marginRight: '3px',
+      },
+      dataset: {
+        value,
+      },
+    },
+    '/'
+  )
+
+  return vnode
+}
+
+export const aconf = {
   type: 'attachment', // 节点 type ，重要！！！
   renderElem: renderAttachment,
+}
+
+const conf = {
+  type: 'ice_break', // 节点 type ，重要！！！
+  renderElem: renderBreak,
 }
 
 export default conf

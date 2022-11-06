@@ -1,23 +1,23 @@
 {
-  "name": "@wangeditor/plugin-upload-attachment",
-  "version": "1.1.0",
-  "description": "wangEditor 上传附件",
+  "name": "@xiaoice/wangeditor-plugin-ssml",
+  "version": "0.0.1",
+  "description": "wangEditor SSML 插件",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wangeditor-team/wangEditor-plugin-upload-attachment.git"
+    "url": "git@github.com:essencemike/wangEditor-plugin-ssml.git"
   },
   "keywords": [
-    "附件",
-    "上传附件",
-    "attachment",
+    "wangEditor",
+    "SSML",
+    "ssml",
     "wangeditor"
   ],
-  "author": "github.com/wangfupeng1988",
+  "author": "github.com/essencemike",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wangeditor-team/wangEditor-plugin-upload-attachment/issues"
+    "url": "https://github.com/essencemike/wangEditor-plugin-ssml/issues"
   },
-  "homepage": "https://github.com/wangeditor-team/wangEditor-plugin-upload-attachment#readme",
+  "homepage": "https://github.com/essencemike/wangEditor-plugin-ssml#readme",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/src/index.d.ts",
@@ -79,6 +79,7 @@
     "less": "^4.1.1",
     "less-loader": "^8.0.0",
     "lint-staged": "^12.3.4",
+    "postcss": "^8.4.18",
     "postcss-loader": "^5.2.0",
     "prettier": "^2.5.1",
     "raw-loader": "^4.0.2",

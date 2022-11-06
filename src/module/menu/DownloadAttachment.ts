@@ -1,6 +1,6 @@
 /**
  * @description download attachment menu
- * @author wangfupeng
+ * @author emike
  */
 
 import { DomEditor, IDomEditor, SlateRange, t } from '@wangeditor/editor'

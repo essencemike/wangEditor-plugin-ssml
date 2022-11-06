@@ -1,6 +1,6 @@
 /**
  * @description 多语言
- * @author wangfupeng
+ * @author emike
  */
 
 import { i18nAddResources } from '@wangeditor/editor'

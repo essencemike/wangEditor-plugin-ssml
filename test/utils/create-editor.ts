@@ -1,6 +1,6 @@
 /**
  * @description create editor
- * @author wangfupeng
+ * @author emike
  */
 
 import { createEditor } from '@wangeditor/editor'

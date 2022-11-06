@@ -1,29 +1,27 @@
 /**
  * @description elem to html test
- * @author wangfupeng
+ * @author emike
  */
 
 import elemToHtmlConf from '../../src/module/elem-to-html'
-import { AttachmentElement } from '../../src/index'
+import { BreakElement } from '../../src/index'
 
-describe('attachment elem-to-html', () => {
-  const fileName = 'xxx.zip'
-  const link = 'https://pan.baidu.com/'
-  const attachmentElem: AttachmentElement = {
-    type: 'attachment',
-    fileName,
-    link,
+describe('break elem-to-html', () => {
+  const value = '2'
+  const breakEle: BreakElement = {
+    type: 'ice_break',
+    value,
     children: [{ text: '' }],
   }
 
   it('type', () => {
-    expect(elemToHtmlConf.type).toBe('attachment')
+    expect(elemToHtmlConf.type).toBe('ice_break')
   })
 
   it('elem to html', () => {
-    const html = elemToHtmlConf.elemToHtml(attachmentElem, '')
+    const html = elemToHtmlConf.elemToHtml(breakEle, '')
     expect(html).toBe(
-      `<a data-w-e-type="attachment" data-w-e-is-void data-w-e-is-inline href="${link}" download="${fileName}">${fileName}</a>`
+      `<break data-w-e-type="ice_break" data-value="${value}" time="${+value * 1000}ms" />`
     )
   })
 })

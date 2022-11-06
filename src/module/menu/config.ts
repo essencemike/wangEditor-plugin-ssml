@@ -1,11 +1,11 @@
 /**
  * @description menu config
- * @author wangfupeng
+ * @author emike
  */
 
 import { IUploadConfig } from '@wangeditor/editor'
 import { AttachmentElement } from '../custom-types'
-import { UppyFile } from '@uppy/core'
+import { BreakItem } from '../custom-types'
 
 type InsertFn = (fileName: string, link: string) => void
 
@@ -13,7 +13,7 @@ type InsertFn = (fileName: string, link: string) => void
 export type IUploadConfigForAttachment = IUploadConfig & {
   allowedFileTypes?: string[]
   // 用户自定义插入附件
-  customInsert?: (res: any, file: UppyFile, insertFn: InsertFn) => void
+  customInsert?: (res: any, file: any, insertFn: InsertFn) => void
   // 用户自定义上传附件
   customUpload?: (files: File, insertFn: InsertFn) => void
   // 自定义选择附件，如图床
@@ -70,4 +70,27 @@ export function genUploadAttachmentMenuConfig(): IUploadConfigForAttachment {
       // 插入文件之后的 callback
     },
   }
+}
+
+export type IceBreak = {
+  breaks: BreakItem[]
+}
+
+const breakList = [
+  {
+    label: '停顿1秒',
+    value: 1,
+  },
+  {
+    label: '停顿2秒',
+    value: 2,
+  },
+  {
+    label: '停顿3秒',
+    value: 3,
+  },
+]
+
+export function genBreakList(): BreakItem[] {
+  return breakList
 }

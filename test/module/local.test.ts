@@ -1,6 +1,6 @@
 /**
  * @description attachment local test
- * @author wangfupeng
+ * @author emike
  */
 
 import '../../src/module/local'

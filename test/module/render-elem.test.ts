@@ -1,34 +1,29 @@
 /**
  * @description render-elem test
- * @author wangfupeng
+ * @author emike
  */
 
 import createEditor from '../utils/create-editor'
 import renderElemConf from '../../src/module/render-elem'
-import { AttachmentElement } from '../../src/index'
+import { BreakElement } from '../../src/index'
 
-describe('attachment render-elem', () => {
+describe('break render-elem', () => {
   const editor = createEditor()
 
-  const fileName = 'xxx.zip'
-  const attachmentElem: AttachmentElement = {
-    type: 'attachment',
-    fileName,
-    link: 'x',
+  const value = '2'
+  const breakEle: BreakElement = {
+    type: 'ice_break',
+    value,
     children: [{ text: '' }],
   }
 
   it('type', () => {
-    expect(renderElemConf.type).toBe('attachment')
+    expect(renderElemConf.type).toBe('ice_break')
   })
 
   it('render elem', () => {
-    const vnode = renderElemConf.renderElem(attachmentElem, null, editor) as any
+    const vnode = renderElemConf.renderElem(breakEle, null, editor) as any
     expect(vnode.sel).toBe('span')
     expect(vnode.data.props.contentEditable).toBe(false)
-
-    const children = vnode.children || []
-    expect(children[0].sel).toBe('img')
-    expect(children[1].text).toBe(fileName)
   })
 })

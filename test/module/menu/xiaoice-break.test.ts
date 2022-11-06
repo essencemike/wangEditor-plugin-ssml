@@ -1,30 +1,29 @@
 /**
  * @description upload attachment menu test
- * @author wangfupeng
+ * @author emike
  */
 
 import { SlateEditor, IDomEditor } from '@wangeditor/editor'
 import createEditor from '../../utils/create-editor'
-import { AttachmentElement } from '../../../src/index'
-import UploadAttachmentMenu from '../../../src/module/menu/UploadAttachment'
-import withAttachment from '../../../src/module/plugin'
+import { BreakElement } from '../../../src/index'
+import BreakMenu from '../../../src/module/menu/BreakMenu'
+import withBreak from '../../../src/module/plugin'
 
-describe('upload attachment menu', () => {
-  const editor = withAttachment(createEditor())
-  const menu = new UploadAttachmentMenu()
+describe('break menu', () => {
+  const editor = withBreak(createEditor())
+  const menu = new BreakMenu()
 
   function getStartLocation(editor: IDomEditor) {
     return SlateEditor.start(editor, [])
   }
 
-  function genAttachmentElem() {
-    const attachmentElem: AttachmentElement = {
-      type: 'attachment',
-      fileName: 'aaa',
-      link: 'bbb',
+  function genBreakElem() {
+    const breakEle: BreakElement = {
+      type: 'ice_break',
+      value: '2',
       children: [{ text: '' }],
     }
-    return attachmentElem
+    return breakEle
   }
 
   it('getValue', () => {
@@ -40,9 +39,9 @@ describe('upload attachment menu', () => {
     editor.select(getStartLocation(editor))
     expect(menu.isDisabled(editor)).toBeFalsy()
 
-    // 选中 attachment 节点
-    editor.insertNode(genAttachmentElem())
+    // 选中 break 节点
+    editor.insertNode(genBreakElem())
     editor.select({ path: [0, 1, 0], offset: 0 })
-    expect(menu.isDisabled(editor)).toBeTruthy()
+    expect(menu.isDisabled(editor)).toBeFalsy()
   })
 })
