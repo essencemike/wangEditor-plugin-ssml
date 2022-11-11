@@ -4,14 +4,14 @@
  */
 
 import { DomEditor, IDomEditor, SlateRange, t, IDropPanelMenu } from '@wangeditor/editor'
-import { ATTACHMENT_SVG } from '../../constants/icon-svg'
+import { POLYPHONE_SVG } from '../../../constants/icon-svg'
 import { IceBreak } from './config'
-import $, { DOMElement, Dom7Array } from '../../utils/dom'
+import $, { DOMElement, Dom7Array } from '../../../utils/dom'
 import { BreakElement } from '../custom-types'
 
-class BreakMenu implements IDropPanelMenu {
-  readonly title = '停顿'
-  readonly iconSvg = ATTACHMENT_SVG
+class PolyphoneMenu implements IDropPanelMenu {
+  readonly title = '多音字'
+  readonly iconSvg = POLYPHONE_SVG
   readonly tag = 'button'
   readonly showDropPanel = true
   private $content: Dom7Array | null = null
@@ -89,8 +89,8 @@ class BreakMenu implements IDropPanelMenu {
 
   private getMenuConfig(editor: IDomEditor): IceBreak {
     // 获取配置，见 `./config.js`
-    return editor.getMenuConfig('xiaoice_break') as IceBreak
+    return editor.getMenuConfig('xiaoice_polyphone') as IceBreak
   }
 }
 
-export default BreakMenu
+export default PolyphoneMenu

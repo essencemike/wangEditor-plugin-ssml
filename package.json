@@ -97,7 +97,6 @@
     "webpack-merge": "^5.7.3"
   },
   "peerDependencies": {
-    "@uppy/core": "^2.1.5",
     "@wangeditor/editor": ">=5.1.16",
     "snabbdom": "^3.3.1"
   },

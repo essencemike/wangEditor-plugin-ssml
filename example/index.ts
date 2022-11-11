@@ -10,9 +10,10 @@ import {
   IEditorConfig,
   i18nChangeLanguage,
 } from '@wangeditor/editor'
-import module from '../src/index'
+import { breakModule, participleModule } from '../src/index'
 
-Boot.registerModule(module)
+Boot.registerModule(breakModule)
+Boot.registerModule(participleModule)
 
 // i18nChangeLanguage('en')
 
@@ -39,8 +40,11 @@ const editorConfig: Partial<IEditorConfig> = {
 // 创建编辑器
 const editor = createEditor({
   selector: '#editor-container',
+  mode: 'simple',
   config: editorConfig,
-  html: '<p>hello world<a data-w-e-type="attachment" data-w-e-is-void data-w-e-is-inline href="https://pan.baidu.com/" download="附件文件名">附件文件名</a></p><p> <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> </p><p>选一个视频文件，作为附件上传： </p><break data-w-e-type="ice_break" data-w-e-is-void data-w-e-is-inline data-value="2" time="2000ms"/>',
+  html: `<p>hello <say-as data-w-e-type="ice_participle" data-value="characters" data-text="world" interpret-as="characters">world</say-as>
+    <break data-w-e-type="ice_break" data-value="2" time="2000ms" />
+  </p>`,
 })
 const toolbar = createToolbar({
   editor,
@@ -49,7 +53,7 @@ const toolbar = createToolbar({
     toolbarKeys: [],
     insertKeys: {
       index: 0,
-      keys: ['xiaoice_break', 'uploadAttachment'], // “上传附件”菜单
+      keys: ['xiaoice_participle', 'xiaoice_break'], // “上传附件”菜单
     },
   },
 })

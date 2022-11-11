@@ -3,9 +3,9 @@
  * @author emike
  */
 
-import { h, VNode } from 'snabbdom'
+import { jsx, h, VNode } from 'snabbdom'
 import { DomEditor, IDomEditor, SlateElement } from '@wangeditor/editor'
-import { AttachmentElement, BreakElement } from './custom-types'
+import { AttachmentElement, BreakElement, ParticipleElement } from './custom-types'
 
 function renderAttachment(elem: SlateElement, children: VNode[] | null, editor: IDomEditor): VNode {
   const isDisabled = editor.isDisabled()
@@ -81,6 +81,9 @@ function renderBreak(elem: SlateElement, children: VNode[] | null, editor: IDomE
         display: 'inline-block', // inline
         marginLeft: '3px',
         marginRight: '3px',
+        color: '#73E5E5',
+        fontWeight: '600',
+        fontSize: '14px',
       },
       dataset: {
         value,
@@ -92,14 +95,38 @@ function renderBreak(elem: SlateElement, children: VNode[] | null, editor: IDomE
   return vnode
 }
 
+function renderParticiple(elem: SlateElement, children: VNode[] | null, editor: IDomEditor): VNode {
+  const isDisabled = editor.isDisabled()
+
+  // 当前节点是否选中
+  const selected = DomEditor.isNodeSelected(editor, elem)
+
+  // 构建 vnode
+  const { value = 'digits', text = '1' } = elem as ParticipleElement
+
+  return (
+    <span
+      contentEditable="false"
+      data-value={value}
+      data-text={text}
+      style={{ marginLeft: '3px', marginRight: '3px', borderBottom: '1px solid #FFB580' }}
+    >
+      {text}
+    </span>
+  )
+}
+
 export const aconf = {
   type: 'attachment', // 节点 type ，重要！！！
   renderElem: renderAttachment,
 }
 
-const conf = {
+export const renderBreakElem = {
   type: 'ice_break', // 节点 type ，重要！！！
   renderElem: renderBreak,
 }
 
-export default conf
+export const renderParticipleElem = {
+  type: 'ice_participle', // 节点 type ，重要！！！
+  renderElem: renderParticiple,
+}

@@ -5,7 +5,7 @@
 
 import { DomEditor, IDomEditor, SlateRange, t } from '@wangeditor/editor'
 import { IButtonMenu } from '@wangeditor/editor'
-import { DOWNLOAD_SVG } from '../../constants/icon-svg'
+import { DOWNLOAD_SVG } from '../../../constants/icon-svg'
 import { AttachmentElement } from '../custom-types'
 
 class DownloadAttachmentMenu implements IButtonMenu {

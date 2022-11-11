@@ -4,7 +4,7 @@
  */
 
 import { SlateElement } from '@wangeditor/editor'
-import { AttachmentElement, BreakElement } from './custom-types'
+import { AttachmentElement, BreakElement, ParticipleElement } from './custom-types'
 
 // 生成 html 的函数
 function attachmentToHtml(elem: SlateElement, childrenHtml: string): string {
@@ -18,6 +18,12 @@ function breakToHtml(elem: SlateElement, childrenHtml: string): string {
   return `<break data-w-e-type="ice_break" data-value="${value}" time="${+value * 1000}ms" />`
 }
 
+// 生成 html 的函数
+function participleToHtml(elem: SlateElement, childrenHtml: string): string {
+  const { value = '', text = '' } = elem as ParticipleElement
+  return `<say-as data-w-e-type="ice_participle" data-value="${value}" data-text="${text}" interpret-as="${value}">${text}</say-as>`
+}
+
 // 配置
 export const aconf = {
   type: 'attachment', // 节点 type ，重要！！！
@@ -25,9 +31,12 @@ export const aconf = {
 }
 
 // 配置
-const conf = {
+export const breakToHtmlConf = {
   type: 'ice_break', // 节点 type ，重要！！！
   elemToHtml: breakToHtml,
 }
 
-export default conf
+export const participleToHtmlConf = {
+  type: 'ice_participle',
+  elemToHtml: participleToHtml,
+}

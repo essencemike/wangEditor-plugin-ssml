@@ -4,8 +4,10 @@
  */
 
 import './assets/index.less'
-import module from './module/index'
+import breakModule from './modules/break/index'
+import participleModule from './modules/participle/index'
 
-export * from './module/custom-types'
+export * from './modules/break/custom-types'
+export * from './modules/participle/custom-types'
 
-export default module
+export { breakModule, participleModule }

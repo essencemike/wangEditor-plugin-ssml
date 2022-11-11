@@ -3,7 +3,7 @@
  * @author emike
  */
 
-import elemToHtmlConf from '../../src/module/elem-to-html'
+import breakToHtmlConf from '../../src/modules/break/elem-to-html'
 import { BreakElement } from '../../src/index'
 
 describe('break elem-to-html', () => {
@@ -15,11 +15,11 @@ describe('break elem-to-html', () => {
   }
 
   it('type', () => {
-    expect(elemToHtmlConf.type).toBe('ice_break')
+    expect(breakToHtmlConf.type).toBe('ice_break')
   })
 
   it('elem to html', () => {
-    const html = elemToHtmlConf.elemToHtml(breakEle, '')
+    const html = breakToHtmlConf.elemToHtml(breakEle, '')
     expect(html).toBe(
       `<break data-w-e-type="ice_break" data-value="${value}" time="${+value * 1000}ms" />`
     )

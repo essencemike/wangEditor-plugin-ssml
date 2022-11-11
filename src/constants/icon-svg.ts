@@ -14,3 +14,22 @@ export const ATTACHMENT_SVG = `<svg viewBox="0 0 1024 1024"><path d="M665.821116
 
 // 下载
 export const DOWNLOAD_SVG = `<svg viewBox="0 0 1024 1024"><path d="M736 448l-256 256-256-256h160V64h192v384z m-256 256H0v256h960v-256H480z m416 128h-128v-64h128v64z"></path></svg>`
+
+// 停顿
+export const BREAK_SVG = `<svg width="38" height="22" viewBox="0 0 38 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 9H19" stroke="#73E5E5" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M19 13H25" stroke="#73E5E5" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M23 9H25" stroke="#73E5E5" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M13 13H15" stroke="#73E5E5" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+</svg>`
+
+// 多音字
+export const POLYPHONE_SVG = `<svg width="38" height="22" viewBox="0 0 38 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.1241 8.566C18.2001 8.566 17.4721 8.72 16.9401 9.056C16.3101 9.42 15.9181 10.008 15.7641 10.806L17.3461 10.932C17.4301 10.554 17.6401 10.274 17.9481 10.092C18.2141 9.924 18.5641 9.854 19.0121 9.854C20.0481 9.854 20.5661 10.316 20.5661 11.268V11.548L18.9841 11.59C17.9201 11.618 17.0941 11.842 16.5061 12.262C15.8621 12.696 15.5541 13.326 15.5541 14.138C15.5541 14.74 15.7781 15.23 16.2261 15.622C16.6601 16 17.2481 16.196 18.0041 16.196C18.6341 16.196 19.1801 16.084 19.6421 15.874C20.0481 15.678 20.3981 15.412 20.6781 15.048V16H22.1621V11.38C22.1621 10.498 21.9381 9.826 21.4901 9.364C20.9861 8.832 20.1881 8.566 19.1241 8.566ZM20.5661 12.696V13.06C20.5661 13.62 20.3421 14.082 19.9221 14.446C19.5021 14.796 18.9841 14.978 18.3681 14.978C18.0181 14.978 17.7381 14.88 17.5141 14.712C17.2901 14.544 17.1921 14.334 17.1921 14.082C17.1921 13.214 17.8221 12.766 19.0961 12.738L20.5661 12.696Z" fill="#FFEA80"/>
+<path d="M17 6H21" stroke="#FFEA80" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+</svg>`
+
+// 读法
+export const READ_METHOD = `<svg width="38" height="22" viewBox="0 0 38 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.8132 7.146C12.5492 7.421 12.2192 7.674 11.8232 7.916C11.4272 8.136 11.0532 8.29 10.7012 8.378V9.654C11.4272 9.445 12.0212 9.126 12.4942 8.697V15H13.7812V7.146H12.8132ZM18.8979 5.98L15.0699 16.1H16.1589L19.9759 5.98H18.8979ZM23.2759 7.146L20.2729 15H21.6479L22.3629 13.031H25.6519L26.3669 15H27.7419L24.7389 7.146H23.2759ZM22.7479 11.975L23.9909 8.532H24.0349L25.2669 11.975H22.7479Z" fill="#FFB580"/>
+</svg>`

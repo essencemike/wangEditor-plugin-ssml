@@ -6,8 +6,8 @@
 import { SlateEditor, IDomEditor } from '@wangeditor/editor'
 import createEditor from '../../utils/create-editor'
 import { BreakElement } from '../../../src/index'
-import BreakMenu from '../../../src/module/menu/BreakMenu'
-import withBreak from '../../../src/module/plugin'
+import BreakMenu from '../../../src/modules/break/menu/BreakMenu'
+import withBreak from '../../../src/modules/break/plugin'
 
 describe('break menu', () => {
   const editor = withBreak(createEditor())

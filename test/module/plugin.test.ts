@@ -4,7 +4,7 @@
  */
 
 import createEditor from '../utils/create-editor'
-import withBreak from '../../src/module/plugin'
+import withBreak from '../../src/modules/break/plugin'
 import { BreakElement } from '../../src/index'
 
 describe('break plugin', () => {

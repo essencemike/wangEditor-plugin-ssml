@@ -4,7 +4,7 @@
  */
 
 import createEditor from '../utils/create-editor'
-import renderElemConf from '../../src/module/render-elem'
+import renderBreakElem from '../../src/modules/break/render-elem'
 import { BreakElement } from '../../src/index'
 
 describe('break render-elem', () => {
@@ -18,11 +18,11 @@ describe('break render-elem', () => {
   }
 
   it('type', () => {
-    expect(renderElemConf.type).toBe('ice_break')
+    expect(renderBreakElem.type).toBe('ice_break')
   })
 
   it('render elem', () => {
-    const vnode = renderElemConf.renderElem(breakEle, null, editor) as any
+    const vnode = renderBreakElem.renderElem(breakEle, null, editor) as any
     expect(vnode.sel).toBe('span')
     expect(vnode.data.props.contentEditable).toBe(false)
   })

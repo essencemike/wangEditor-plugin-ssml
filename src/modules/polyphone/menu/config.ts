@@ -76,6 +76,15 @@ export type IceBreak = {
   breaks: BreakItem[]
 }
 
+type ParticipleItem = {
+  label: string
+  value: string
+}
+
+export type IceParticiple = {
+  participles: ParticipleItem[]
+}
+
 const breakList = [
   {
     label: '停顿1秒',
@@ -91,6 +100,16 @@ const breakList = [
   },
 ]
 
+const participleList = [
+  { label: '读数字', value: 'digits' },
+  { label: '读数值', value: 'cardinal' },
+  { label: '读字母', value: 'characters' },
+]
+
 export function genBreakList(): BreakItem[] {
   return breakList
+}
+
+export function genParticipleList() {
+  return participleList
 }

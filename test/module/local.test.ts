@@ -3,7 +3,7 @@
  * @author emike
  */
 
-import '../../src/module/local'
+import '../../src/modules/break/local'
 import { i18nChangeLanguage, t } from '@wangeditor/editor'
 
 describe('local', () => {

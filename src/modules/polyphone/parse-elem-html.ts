@@ -3,11 +3,11 @@
  * @author emike
  */
 
-import { DOMElement } from '../utils/dom'
+import { DOMElement } from '../../utils/dom'
 import { IDomEditor, SlateDescendant, SlateElement } from '@wangeditor/editor'
-import { AttachmentElement, BreakElement } from './custom-types'
+import { AttachmentElement, BreakElement, ParticipleElement } from './custom-types'
 
-function parseHtml(
+function parseBreakHtml(
   elem: DOMElement,
   children: SlateDescendant[],
   editor: IDomEditor
@@ -18,6 +18,22 @@ function parseHtml(
     value,
     children: [{ text: '' }], // void node 必须有一个空白 text
   } as BreakElement
+}
+
+function parseParticipleHtml(
+  elem: DOMElement,
+  children: SlateDescendant[],
+  editor: IDomEditor
+): SlateElement {
+  const value = elem.getAttribute('data-value') || 'digits'
+  const text = elem.getAttribute('data-text') || ''
+
+  return {
+    type: 'ice_participle',
+    value,
+    text,
+    children: [{ text }],
+  } as ParticipleElement
 }
 
 function aparseHtml(
@@ -40,9 +56,12 @@ export const aparseHtmlConf = {
   parseElemHtml: aparseHtml,
 }
 
-const parseHtmlConf = {
+export const parseBreakHtmlConf = {
   selector: 'break[data-w-e-type="ice_break"]',
-  parseElemHtml: parseHtml,
+  parseElemHtml: parseBreakHtml,
 }
 
-export default parseHtmlConf
+export const parseParticipleHtmlConf = {
+  selector: 'say-as[data-w-e-type="ice_participle"]',
+  parseElemHtml: parseParticipleHtml,
+}
