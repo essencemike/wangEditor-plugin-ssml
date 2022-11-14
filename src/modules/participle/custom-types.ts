@@ -17,6 +17,5 @@ export type ParticipleElement = {
 
 export type StyledText = {
   text: string
-  underline?: boolean
-  color?: string
+  underline?: string
 }

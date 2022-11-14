@@ -15,6 +15,7 @@ class ParticipleMenu implements IDropPanelMenu {
   readonly iconSvg = READ_METHOD
   readonly tag = 'button'
   readonly showDropPanel = true
+  readonly mark = 'underline'
   private $content: Dom7Array | null = null
 
   getValue(editor: IDomEditor): string | boolean {
@@ -60,17 +61,10 @@ class ParticipleMenu implements IDropPanelMenu {
         const $li = $(target)
         const val = $li.attr('data-value')
 
-        // 插入一个 带颜色的 /
-        const node: ParticipleElement = {
-          type: 'ice_participle',
-          value: val,
-          text,
-          children: [{ text }],
-        }
-
-        editor.deleteFragment()
-        editor.insertNode(node)
-        editor.move(1)
+        editor.removeMark(this.mark)
+        editor.addMark(this.mark, val)
+        editor.move(text.length)
+        editor.removeMark(this.mark)
       })
 
       this.$content = $content
@@ -84,7 +78,6 @@ class ParticipleMenu implements IDropPanelMenu {
     const participleConf = this.getMenuConfig(editor)
     const { participles = [] } = participleConf
 
-    console.log(text)
     let menus = [...participles]
     if (isAllLetterString(text)) {
       menus = menus.filter(m => m.value === 'characters')

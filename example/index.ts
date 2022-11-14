@@ -42,8 +42,7 @@ const editor = createEditor({
   selector: '#editor-container',
   mode: 'simple',
   config: editorConfig,
-  html: `<p>hello <say-as data-w-e-type="ice_participle" data-value="characters" data-text="world" interpret-as="characters">world</say-as>
-    <break data-w-e-type="ice_break" data-value="2" time="2000ms" />
+  html: `<p>hello <u data-value="characters" interpret-as="world">world</u> <break data-w-e-type="ice_break" data-value="2" time="2000ms" />
   </p>`,
 })
 const toolbar = createToolbar({

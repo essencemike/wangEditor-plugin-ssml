@@ -10,11 +10,18 @@ import participleToHtmlConf from './elem-to-html'
 import parseParticipleHtmlConf from './parse-elem-html'
 import { participleMenuConf } from './menu/index'
 
+import { renderStyle } from './render-style'
+import { styleToHtml } from './style-to-html'
+import { parseStyleHtml } from './parse-style-html'
+
 const module: Partial<IModuleConf> = {
-  editorPlugin: withParticiple,
-  renderElems: [renderParticipleElem],
-  elemsToHtml: [participleToHtmlConf],
-  parseElemsHtml: [parseParticipleHtmlConf],
+  // editorPlugin: withParticiple,
+  renderStyle,
+  styleToHtml,
+  parseStyleHtml,
+  // renderElems: [renderParticipleElem],
+  // elemsToHtml: [participleToHtmlConf],
+  // parseElemsHtml: [parseParticipleHtmlConf],
   menus: [participleMenuConf],
 }
 
